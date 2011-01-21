@@ -1,0 +1,21 @@
+== ABOUT ==
+Aldriana's Shadowcraft Engine is an excellent endeavour however most of the UIs I see are
+fairly primitive. This isn't to say they don't get the job done but there are a lot of
+tasks that need to be done when switching gear in and out and a dropdown doesn't always
+give you the best information. I found myself switching in items without fully having all
+the information. Therefore I decided to make a very lively (and informative) javascript
+interface as well as one that allows for all relevant item data to be readily available.
+I also want to allow importing directly from the armory, fully aware that once the
+feed system is back it will become irrelevant & trivial.
+
+I will also implement a storage system that will save configurations. Whether this is done
+by a unique id system or dynamic url (much like how wowhead does talent configurations) is yet
+to be seen.
+
+Please note that this project is only a view to Aldriana's engine and does not actually include
+Aldriana's code.
+
+== REQUIREMENTS ==
+PHP 5+
+Python 2.6
+Aldriana's Shadowcraft Engine (https://github.com/Aldriana/ShadowCraft-Engine/)
