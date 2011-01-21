@@ -1,0 +1,36 @@
+*{padding:0px;margin:0px;}
+
+#mainContainer
+{
+	margin: auto;
+	width: 1024px;
+	text-align: center;
+}
+
+#mainTable
+{
+	margin: auto;
+	font-family: "Lucida Grande";
+	border-radius: 10px;
+}
+
+#mainTable th
+{
+	background: #333;
+	color: #FFF;
+}
+
+#mainTable td
+{
+	font-size: 10px;
+	background: #CCC;
+}
+
+#dataDisplay
+{
+	width: 400px;
+	min-height: 400px;
+	margin: 5px;
+	border-radius: 10px;
+	background-color: #CCC;
+}
