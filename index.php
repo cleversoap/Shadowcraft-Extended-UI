@@ -78,7 +78,11 @@ function printItem($id="",$rightAlign=false)
 				</th>
 			</tr>
 			<tr>
+<<<<<<< HEAD
 				<td id="raceBox">
+=======
+				<td id="slot-0">
+>>>>>>> 5b3288cf53a201e904d6a44100f13336c116a99c
 					RACE IMAGE SLIDER
 				</td>
 				<td id="core" colspan="3" rowspan="7" align="center" valign="top">
@@ -91,7 +95,11 @@ function printItem($id="",$rightAlign=false)
 				</td>
 			</tr>
 			<tr>
+<<<<<<< HEAD
 				<td id="modBox">
+=======
+				<td id="slot-1">
+>>>>>>> 5b3288cf53a201e904d6a44100f13336c116a99c
 					ASSAS/CMBT/SUB SLIDER
 				</td>
 				<td id="slot-1">
