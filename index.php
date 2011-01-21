@@ -1,4 +1,19 @@
 <?php
+// Get the default gear list or get one that has been imported
+if (!empty($_GET["region"]) && !empty($_GET["realm"]) && !empty($_GET["name"]))
+{
+	$ce = curl_init();
+	curl_setopt($ce, CURLOPT_URL, "http://localhost/Shadowcraft-Extended-UI/armory.php?region=" . $_GET["region"] . "&realm=" . $_GET["realm"] . "&name=" . $_GET["name"]); 
+	curl_setopt($ce, CURLOPT_RETURNTRANSFER, 1);
+	$equip = (array)json_decode(curl_exec($ce));
+}
+else
+{
+	$equip = array('head' => 65129, 'neck' => 65107, 'shoulders' => 65083, 'back' => 65035, 'chest' => 65239, 'wrist' => 65050, 'hands' => 65240, 'waist' => 56537, 'legs' => 65242, 'feet' => 65144, 'ring1' => 65082, 'ring2' => 67136, 'trinket1' => 65026, 'trinket2' => 62051, 'mainhand' => 65081, 'offhand' => 68600, 'ranged' => 68608);
+}
+
+
+// Print an item in a slot
 function printItem($id="",$rightAlign=false)
 {
 	if(empty($id))
@@ -54,11 +69,16 @@ function printItem($id="",$rightAlign=false)
 		<table border="0" id="mainTable">
 			<tr>
 				<th colspan="5">
-					<label for="importChar">IMPORT</label>
+					<form action="index.php" method="get">
+						<input type="text" name="region" value="<?=(!empty($_GET["region"]) ? $_GET["region"] : "region")?>" />
+						<input type="text" name="realm" value="<?=(!empty($_GET["realm"]) ? $_GET["realm"] : "realm")?>" />
+						<input type="text" name="name" value="<?=(!empty($_GET["name"]) ? $_GET["name"] : "name")?>" />
+						<input type="submit" value="IMPORT" />
+					</form>
 				</th>
 			</tr>
 			<tr>
-				<td id="slot-0">
+				<td id="raceBox">
 					RACE IMAGE SLIDER
 				</td>
 				<td id="core" colspan="3" rowspan="7" align="center" valign="top">
@@ -67,72 +87,72 @@ function printItem($id="",$rightAlign=false)
 					</div>
 				</td>
 				<td id="slot-10">
-					<?=printItem("65240")?>
+					<?=printItem($equip['hands'])?>
 				</td>
 			</tr>
 			<tr>
-				<td id="slot-1">
+				<td id="modBox">
 					ASSAS/CMBT/SUB SLIDER
 				</td>
+				<td id="slot-1">
+					<?=printItem($equip['waist'])?>
+				</td>
+			</tr>
+			<tr>
 				<td id="slot-2">
-					<?=printItem("56537")?>
+					<?=printItem($equip['head'])?>
+				</td>
+				<td id="slot-4">
+					<?=printItem($equip['legs'])?>
 				</td>
 			</tr>
 			<tr>
 				<td id="slot-3">
-					<?=printItem("65129")?>
+					<?=printItem($equip['neck'])?>
 				</td>
+				<td id="slot-6">
+					<?=printItem($equip['feet'])?>
+				</td>
+			</tr>
+			<tr>
 				<td id="slot-4">
-					<?=printItem("65242")?>
+					<?=printItem($equip['shoulders'])?>
+				</td>
+				<td id="slot-8">
+					<?=printItem($equip['ring1'])?>
+				</td>
+			</tr>
+			<tr>
+				<td id="slot-16">
+					<?=printItem($equip['back'])?>
+				</td>
+				<td id="slot-10">
+					<?=printItem($equip['ring2'])?>
 				</td>
 			</tr>
 			<tr>
 				<td id="slot-5">
-					<?=printItem("65107")?>
-				</td>
-				<td id="slot-6">
-					<?=printItem("65144")?>
-				</td>
-			</tr>
-			<tr>
-				<td id="slot-7">
-					<?=printItem("65083")?>
-				</td>
-				<td id="slot-8">
-					<?=printItem("65082")?>
-				</td>
-			</tr>
-			<tr>
-				<td id="slot-9">
-					<?=printItem("65035")?>
-				</td>
-				<td id="slot-10">
-					<?=printItem("67136")?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<?=printItem("65239")?>
+					<?=printItem($equip['chest'])?>
 				</td>
 				<td id="slot-11">
-					<?=printItem("65026")?>
+					<?=printItem($equip['trinket1'])?>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<?=printItem("65050")?>
+					<?=printItem($equip['wrist'])?>
 				</td>
 				<td>
-					<?=printItem("65081")?>
+					<?=printItem($equip['mainhand'])?>
 				</td>
 				<td>
-					<?=printItem("68600")?>
+					<?=printItem($equip['offhand'])?>
 				</td>
 				<td>
-					<?=printItem("68608")?>
+					<?=printItem($equip['ranged'])?>
 				</td>
 				<td id="slot-12">
-					<?=printItem("62051")?>
+					<?=printItem($equip['trinket2'])?>
 				</td>
 			</tr>
 		</table>
