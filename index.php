@@ -59,34 +59,21 @@ function printItem($id="",$rightAlign=false)
 	</head>
 	<body>
 		<div id="mainContainer">
-		<h1>Shadowcraft</h1>
+		<img src="img/header.png" alt="ShadowCraft" />
 		<table border="0" id="mainTable">
 			<tr>
-				<th colspan="3">
+				<th colspan="5">
 					<label for="importChar">IMPORT</label>
 				</th>
 			</tr>
 			<tr>
 				<td id="slot-0">
-					<?=printItem("65129")?>
+					RACE
 				</td>
-				<td id="core" rowspan="8" align="center" valign="top">
+				<td id="core" colspan="3" rowspan="7" align="center" valign="top">
 					<div id="dataDisplay">
 						DATA
 					</div>
-					<table border="1">
-						<tr>
-							<td>
-								<?=printItem("65081")?>
-							</td>
-							<td>
-								<?=printItem("68600")?>
-							</td>
-							<td>
-								<?=printItem("68608")?>
-							</td>
-						</tr>
-					</table>
 				</td>
 				<td id="slot-10">
 					<?=printItem("65240")?>
@@ -94,7 +81,7 @@ function printItem($id="",$rightAlign=false)
 			</tr>
 			<tr>
 				<td id="slot-1">
-					<?=printItem("65107")?>
+					TALENTS
 				</td>
 				<td id="slot-2">
 					<?=printItem("56537")?>
@@ -102,7 +89,7 @@ function printItem($id="",$rightAlign=false)
 			</tr>
 			<tr>
 				<td id="slot-3">
-					<?=printItem("65083")?>
+					<?=printItem("65129")?>
 				</td>
 				<td id="slot-4">
 					<?=printItem("65242")?>
@@ -110,7 +97,7 @@ function printItem($id="",$rightAlign=false)
 			</tr>
 			<tr>
 				<td id="slot-5">
-					<?=printItem("65035")?>
+					<?=printItem("65107")?>
 				</td>
 				<td id="slot-6">
 					<?=printItem("65144")?>
@@ -118,7 +105,7 @@ function printItem($id="",$rightAlign=false)
 			</tr>
 			<tr>
 				<td id="slot-7">
-					<?=printItem("65239")?>
+					<?=printItem("65083")?>
 				</td>
 				<td id="slot-8">
 					<?=printItem("65082")?>
@@ -126,20 +113,33 @@ function printItem($id="",$rightAlign=false)
 			</tr>
 			<tr>
 				<td id="slot-9">
-					<?=printItem("65050")?>
+					<?=printItem("65035")?>
 				</td>
 				<td id="slot-10">
 					<?=printItem("67136")?>
 				</td>
 			</tr>
 			<tr>
-				<td></td>
+				<td>
+					<?=printItem("65239")?>
+				</td>
 				<td id="slot-11">
 					<?=printItem("65026")?>
 				</td>
 			</tr>
 			<tr>
-				<td></td>
+				<td>
+					<?=printItem("65050")?>
+				</td>
+				<td>
+					<?=printItem("65081")?>
+				</td>
+				<td>
+					<?=printItem("68600")?>
+				</td>
+				<td>
+					<?=printItem("68608")?>
+				</td>
 				<td id="slot-12">
 					<?=printItem("62051")?>
 				</td>
