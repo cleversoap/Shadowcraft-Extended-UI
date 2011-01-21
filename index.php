@@ -78,7 +78,6 @@ function printItem($id="",$rightAlign=false)
 				</th>
 			</tr>
 			<tr>
-				<td id="raceBox">
 				<td id="slot-0">
 					RACE IMAGE SLIDER
 				</td>
@@ -92,7 +91,6 @@ function printItem($id="",$rightAlign=false)
 				</td>
 			</tr>
 			<tr>
-				<td id="modBox">
 				<td id="slot-1">
 					ASSAS/CMBT/SUB SLIDER
 				</td>
