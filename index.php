@@ -16,14 +16,16 @@ function printItem($id="",$rightAlign=false)
 <table>
 	<tr valign="top">
 	<td>
-		<img src="http://static.wowhead.com/images/wow/icons/medium/<?=$json->icon?>.jpg" /><br />
-		+301 Agi<br />
-		+512 Stam
+		<img src="http://static.wowhead.com/images/wow/icons/medium/<?=$json->icon->img?>.jpg" /><br />
+		<?php
+			foreach($json->stats as $stat => $value)
+				echo '<p>+' . $value . ' ' . $stat . '</p>';
+		?>
 	</td>
 	<td>
 		<table>
 			<tr>
-				<td colspan="2"><?=$json->name?></td>
+				<td colspan="2"><?=$json->title?></td>
 			</tr>
 			<tr>
 				<td>[E]</td>
