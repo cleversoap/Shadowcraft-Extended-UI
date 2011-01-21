@@ -19,30 +19,20 @@ function printItem($id="",$rightAlign=false)
 		<img src="http://static.wowhead.com/images/wow/icons/medium/<?=$json->icon->img?>.jpg" /><br />
 		<?php
 			foreach($json->stats as $stat => $value)
-				echo '<p>+' . $value . ' ' . $stat . '</p>';
+				echo '<p class="itemStat">+' . $value . ' ' . $stat . '</p>';
 		?>
 	</td>
 	<td>
 		<table>
 			<tr>
-				<td colspan="2"><?=$json->title?></td>
+				<td><?=$json->title?></td>
 			</tr>
-			<tr>
-				<td>[E]</td>
-				<td>Enchant</td>
-			</tr>
-			<tr>
-				<td>[C]</td>
-				<td>Cogwheel</td>
-			</tr>
-			<tr>
-				<td>[C]</td>
-				<td>Cogwheel</td>
-			</tr>
-			<tr>
-				<td>[B]</td>
-				<td>Gem Bonus</td>
-			</tr>
+			<?php
+				foreach($json->gems as $gem)
+				{
+					echo '<tr><td>' . $gem->color . '</td></tr>';
+				}
+			?>
 		</table>
 	</td>
 	</tr>
@@ -56,6 +46,7 @@ function printItem($id="",$rightAlign=false)
 	<head>
 		<title>Shadowcraft Extended UI</title>
 		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script type="text/javascript" language="javascript" href="jquery.js"></script> <!-- MOVE TO BOTTOM WHEN DONE -->
 	</head>
 	<body>
 		<div id="mainContainer">
@@ -68,7 +59,7 @@ function printItem($id="",$rightAlign=false)
 			</tr>
 			<tr>
 				<td id="slot-0">
-					RACE
+					RACE IMAGE SLIDER
 				</td>
 				<td id="core" colspan="3" rowspan="7" align="center" valign="top">
 					<div id="dataDisplay">
@@ -81,7 +72,7 @@ function printItem($id="",$rightAlign=false)
 			</tr>
 			<tr>
 				<td id="slot-1">
-					TALENTS
+					ASSAS/CMBT/SUB SLIDER
 				</td>
 				<td id="slot-2">
 					<?=printItem("56537")?>
@@ -145,6 +136,10 @@ function printItem($id="",$rightAlign=false)
 				</td>
 			</tr>
 		</table>
+		<div id="footer">
+			<a href="https://github.com/cleversoap/Shadowcraft-Extended-UI">UI</a> by keys@saurfang<br/>
+			<a href="https://github.com/Aldriana/ShadowCraft-Engine/">Engine</a> by aldriana@doomhammer
+		</div>
 		</div>
 	</body>
 </html>
