@@ -28,30 +28,26 @@ function printItem($id="",$rightAlign=false)
 	
 ?>
 
-<table>
-	<tr valign="top">
-	<td>
-		<img src="http://static.wowhead.com/images/wow/icons/medium/<?=$json->icon->img?>.jpg" /><br />
+<div class="itemSlot">
+	<div class="itemTitle">
+		<a href="#"><?=$json->title?></a>
+	</div>
+	<div class="itemIcon">
+		<img src="http://static.wowhead.com/images/wow/icons/medium/<?=$json->icon->img?>.jpg" />
+	</div>
+	<div class="itemStats">
 		<?php
 			foreach($json->stats as $stat => $value)
 				echo '<p class="itemStat">+' . $value . ' ' . $stat . '</p>';
 		?>
-	</td>
-	<td>
-		<table>
-			<tr>
-				<td><?=$json->title?></td>
-			</tr>
-			<?php
-				foreach($json->gems as $gem)
-				{
-					echo '<tr><td>' . $gem->color . '</td></tr>';
-				}
-			?>
-		</table>
-	</td>
-	</tr>
-</table>
+	</div>
+	<div class="itemMods">
+		<?php
+			foreach($json->gems as $gem)
+				echo '<p>' . $gem->color . '</p>';
+		?>
+	</div>
+</div>
 
 <?php
 }
@@ -68,7 +64,7 @@ function printItem($id="",$rightAlign=false)
 		<img src="img/header.png" alt="ShadowCraft" />
 		<table border="0" id="mainTable">
 			<tr>
-				<th colspan="5">
+				<th colspan="3">
 					<form action="index.php" method="get">
 						<input type="text" name="region" value="<?=(!empty($_GET["region"]) ? $_GET["region"] : "region")?>" />
 						<input type="text" name="realm" value="<?=(!empty($_GET["realm"]) ? $_GET["realm"] : "realm")?>" />
@@ -78,81 +74,38 @@ function printItem($id="",$rightAlign=false)
 				</th>
 			</tr>
 			<tr>
-				<td id="slot-0">
+				<td id="slot-0" class="column">
 					RACE IMAGE SLIDER
 				</td>
-				<td id="core" colspan="3" rowspan="7" align="center" valign="top">
+				<td id="core" rowspan="3" align="center" valign="top">
 					<div id="dataDisplay">
 						DATA
 					</div>
 				</td>
-				<td id="slot-10">
+				<td id="rightItems" rowspan="3">
 					<?=printItem($equip['hands'])?>
+					<?=printItem($equip['waist'])?>
+					<?=printItem($equip['legs'])?>
+					<?=printItem($equip['feet'])?>
+					<?=printItem($equip['ring1'])?>
+					<?=printItem($equip['ring2'])?>
+					<?=printItem($equip['trinket1'])?>
+					<?=printItem($equip['trinket2'])?>
 				</td>
 			</tr>
 			<tr>
 				<td id="slot-1">
 					ASSAS/CMBT/SUB SLIDER
 				</td>
-				<td id="slot-1">
-					<?=printItem($equip['waist'])?>
-				</td>
 			</tr>
 			<tr>
-				<td id="slot-2">
+				<td id="leftItems" class="column">
 					<?=printItem($equip['head'])?>
-				</td>
-				<td id="slot-4">
-					<?=printItem($equip['legs'])?>
-				</td>
-			</tr>
-			<tr>
-				<td id="slot-3">
 					<?=printItem($equip['neck'])?>
-				</td>
-				<td id="slot-6">
-					<?=printItem($equip['feet'])?>
-				</td>
-			</tr>
-			<tr>
-				<td id="slot-4">
 					<?=printItem($equip['shoulders'])?>
-				</td>
-				<td id="slot-8">
-					<?=printItem($equip['ring1'])?>
-				</td>
-			</tr>
-			<tr>
-				<td id="slot-16">
 					<?=printItem($equip['back'])?>
-				</td>
-				<td id="slot-10">
-					<?=printItem($equip['ring2'])?>
-				</td>
-			</tr>
-			<tr>
-				<td id="slot-5">
 					<?=printItem($equip['chest'])?>
-				</td>
-				<td id="slot-11">
-					<?=printItem($equip['trinket1'])?>
-				</td>
-			</tr>
-			<tr>
-				<td>
 					<?=printItem($equip['wrist'])?>
-				</td>
-				<td>
-					<?=printItem($equip['mainhand'])?>
-				</td>
-				<td>
-					<?=printItem($equip['offhand'])?>
-				</td>
-				<td>
-					<?=printItem($equip['ranged'])?>
-				</td>
-				<td id="slot-12">
-					<?=printItem($equip['trinket2'])?>
 				</td>
 			</tr>
 		</table>

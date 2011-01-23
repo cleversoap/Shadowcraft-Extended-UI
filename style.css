@@ -18,6 +18,7 @@ body
 #mainTable
 {
 	margin: auto;
+	width: 95%;
 }
 
 #mainTable th
@@ -33,12 +34,51 @@ body
 	border-radius: 10px;
 	padding: 3px;
 	vertical-align: top;
+	height: 100px;
 }
 
-.itemStat
+#mainTable td.column
 {
-	width: 100%;
-	text-align: right;
+	width: 200px;
+}
+
+.itemSlot
+{
+	/*border: 1px solid #FF0000;*/
+	height: 150px;
+}
+
+.itemIcon
+{
+	display: block;
+}
+
+.itemStats
+{
+	float: left;
+}
+
+.itemMods
+{
+	margin-top: -20px;
+}
+
+.itemMods p
+{
+	background: #BB33BB;
+	border-radius: 2px;
+	margin: 2px 2px 2px 95px;
+}
+
+.itemTitle
+{
+	font-weight: bold;
+	float: right;
+}
+
+.quality3
+{
+	color: purple;
 }
 
 #dataDisplay
