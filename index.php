@@ -64,6 +64,7 @@ function printItem($id="",$lastRow=false)
 	<body>
 		<div id="mainContainer">
 		<img src="img/header.png" alt="ShadowCraft" />
+		<div id="quote">&lt;RANDOM ROGUE QUOTE&gt;</div>
 		<table border="0" id="mainTable">
 			<tr>
 				<th colspan="3">
@@ -77,6 +78,8 @@ function printItem($id="",$lastRow=false)
 			</tr>
 		</table>
 				<div id="leftItems">
+					<div class="itemSlot">RACE SLIDER</div>
+					<div class="itemSlot">TALENTS & MODS</div>
 					<?=printItem($equip['head'])?>
 					<?=printItem($equip['neck'])?>
 					<?=printItem($equip['shoulders'])?>
@@ -90,18 +93,18 @@ function printItem($id="",$lastRow=false)
 						<p class="calcStatLabel">Attack Power</p>
 						<p class="calcStatValue">9000</p>
 						<p class="calcStatLabel">Crit</p>
-						<p class="calcStatPct">30.11%</p>
 						<p class="calcStatValue">8000</p>
+						<p class="calcStatPct">30.11%</p>
 						<p class="calcStatLabel">Stamina</p>
 						<p class="calcStatValue">7000</p>
 						<p class="calcStatLabel">Haste</p>
 						<p class="calcStatValue">6000</p>
 						<p class="calcStatLabel">Hit</p>
-						<p class="calcStatPct">11%</p>
 						<p class="calcStatValue">5000</p>
+						<p class="calcStatPct">11%</p>
 						<p class="calcStatLabel">Expertise</p>
-						<p class="calcStatPct">8.11%</p>
 						<p class="calcStatValue">4000</p>
+						<p class="calcStatPct">8.11%</p>
 						<p class="calcStatLabel">Mastery</p>
 						<p class="calcStatValue">3000</p>
 		<div id="weapons">
