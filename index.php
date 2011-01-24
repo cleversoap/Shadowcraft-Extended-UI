@@ -9,7 +9,7 @@ if (!empty($_GET["region"]) && !empty($_GET["realm"]) && !empty($_GET["name"]))
 }
 else
 {
-	$equip = array('head' => 65129, 'neck' => 65107, 'shoulders' => 65083, 'back' => 65035, 'chest' => 65239, 'wrist' => 65050, 'hands' => 65240, 'waist' => 56537, 'legs' => 65242, 'feet' => 65144, 'ring1' => 65082, 'ring2' => 67136, 'trinket1' => 65026, 'trinket2' => 62051, 'mainhand' => 65081, 'offhand' => 68600, 'ranged' => 68608);
+	$equip = array('head' => 59455, 'neck' => 65107, 'shoulders' => 65083, 'back' => 65035, 'chest' => 65239, 'wrist' => 65050, 'hands' => 65240, 'waist' => 56537, 'legs' => 65242, 'feet' => 65144, 'ring1' => 65082, 'ring2' => 67136, 'trinket1' => 65026, 'trinket2' => 62051, 'mainhand' => 65081, 'offhand' => 68600, 'ranged' => 68608);
 }
 
 
@@ -17,9 +17,7 @@ else
 function printItem($id="",$lastRow=false)
 {
 	if(empty($id))
-	{
 		return;
-	}
 	
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, "http://localhost/Shadowcraft-Extended-UI/items.php?item=" . $id); 
@@ -36,6 +34,7 @@ function printItem($id="",$lastRow=false)
 		<a href="#"><?=$json->title?></a>
 	</div>
 	<div class="itemIcon" style="background-image:url('http://static.wowhead.com/images/wow/icons/medium/<?=$json->icon->img?>.jpg')">
+		<?=$json->ilvl?>
 	</div>
 	<div class="itemStats">
 		<?php
@@ -46,7 +45,7 @@ function printItem($id="",$lastRow=false)
 	<div class="itemMods">
 		<?php
 			foreach($json->gems as $gem)
-				echo '<p >' . $gem->color . '</p>';
+				echo '<p style="background-color:' . $gem->color . ';">' . $gem->color . '</p>';
 		?>
 	</div>
 </div>
@@ -65,21 +64,40 @@ function printItem($id="",$lastRow=false)
 		<div id="mainContainer">
 		<img src="img/header.png" alt="ShadowCraft" />
 		<div id="quote">&lt;RANDOM ROGUE QUOTE&gt;</div>
-		<table border="0" id="mainTable">
-			<tr>
-				<th colspan="3">
+	
 					<form action="index.php" method="get">
-						<input type="text" name="region" value="<?=(!empty($_GET["region"]) ? $_GET["region"] : "region")?>" />
+						<select name="region">
+							<option value="us">US</option>
+							<option value="eu" <?=(!empty($_GET["region"]) && $_GET["region"] == "eu" ? "SELECTED" : '')?>>EU</option>
+						</select>
 						<input type="text" name="realm" value="<?=(!empty($_GET["realm"]) ? $_GET["realm"] : "realm")?>" />
 						<input type="text" name="name" value="<?=(!empty($_GET["name"]) ? $_GET["name"] : "name")?>" />
 						<input type="submit" value="IMPORT" />
 					</form>
-				</th>
-			</tr>
+					
 		</table>
 				<div id="leftItems">
-					<div class="itemSlot">RACE SLIDER</div>
-					<div class="itemSlot">TALENTS & MODS</div>
+					<div class="itemSlot">
+						<select name="race">
+							<option>GOBLIN</option>
+							<option>GNOME</option>
+							<option>NIGHT ELF</option>
+							<option>ORC</option>
+							<option>BLOOD ELF</option>
+							<option>HUMAN</option>
+							<option>DWARVE</option>
+							<option>WORGEN</option>
+							<option>TROLL</option>
+							<option>UNDEAD</option>
+						</select>
+					</div>
+					<div class="itemSlot">
+						<select name="talents">
+							<option>ASSASSINATION</option>
+							<option>COMBAT</option>
+							<option>SUBTLETY</option>
+						</select>
+					</div>
 					<?=printItem($equip['head'])?>
 					<?=printItem($equip['neck'])?>
 					<?=printItem($equip['shoulders'])?>
