@@ -14,7 +14,7 @@ else
 
 
 // Print an item in a slot
-function printItem($id="",$rightAlign=false)
+function printItem($id="",$lastRow=false)
 {
 	if(empty($id))
 	{
@@ -26,25 +26,27 @@ function printItem($id="",$rightAlign=false)
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$json = json_decode(curl_exec($ch));
 	
+	
+	// Just to simplify the output - I realize this is horribly redundant
+	$statAbrv = array('agility' => 'agi', 'stamina' => 'stam', 'expertise' => 'exp', 'haste' => 'haste', 'critical-strike' => 'crit', 'hit' => 'hit');
 ?>
 
-<div class="itemSlot">
+<div class="itemSlot<?=($lastRow ? ' lastRow' : '')?>">
 	<div class="itemTitle">
 		<a href="#"><?=$json->title?></a>
 	</div>
-	<div class="itemIcon">
-		<img src="http://static.wowhead.com/images/wow/icons/medium/<?=$json->icon->img?>.jpg" />
+	<div class="itemIcon" style="background-image:url('http://static.wowhead.com/images/wow/icons/medium/<?=$json->icon->img?>.jpg')">
 	</div>
 	<div class="itemStats">
 		<?php
 			foreach($json->stats as $stat => $value)
-				echo '<p class="itemStat">+' . $value . ' ' . $stat . '</p>';
+				echo '<p class="itemStat">+' . $value . ' ' . $statAbrv[$stat] . '</p>';
 		?>
 	</div>
 	<div class="itemMods">
 		<?php
 			foreach($json->gems as $gem)
-				echo '<p>' . $gem->color . '</p>';
+				echo '<p >' . $gem->color . '</p>';
 		?>
 	</div>
 </div>
@@ -74,31 +76,6 @@ function printItem($id="",$rightAlign=false)
 				</th>
 			</tr>
 			<tr>
-				<td id="slot-0" class="column">
-					RACE IMAGE SLIDER
-				</td>
-				<td id="core" rowspan="3" align="center" valign="top">
-					<div id="dataDisplay">
-						DATA
-					</div>
-				</td>
-				<td id="rightItems" rowspan="3">
-					<?=printItem($equip['hands'])?>
-					<?=printItem($equip['waist'])?>
-					<?=printItem($equip['legs'])?>
-					<?=printItem($equip['feet'])?>
-					<?=printItem($equip['ring1'])?>
-					<?=printItem($equip['ring2'])?>
-					<?=printItem($equip['trinket1'])?>
-					<?=printItem($equip['trinket2'])?>
-				</td>
-			</tr>
-			<tr>
-				<td id="slot-1">
-					ASSAS/CMBT/SUB SLIDER
-				</td>
-			</tr>
-			<tr>
 				<td id="leftItems" class="column">
 					<?=printItem($equip['head'])?>
 					<?=printItem($equip['neck'])?>
@@ -107,11 +84,49 @@ function printItem($id="",$rightAlign=false)
 					<?=printItem($equip['chest'])?>
 					<?=printItem($equip['wrist'])?>
 				</td>
+				<td id="core" align="center" valign="top">
+					<div id="dataDisplay">
+						<p class="calcStatLabel">Agility</p>
+						<p class="calcStatValue">10000</p>
+						<p class="calcStatLabel">Attack Power</p>
+						<p class="calcStatValue">9000</p>
+						<p class="calcStatLabel">Crit</p>
+						<p class="calcStatPct">30.11%</p>
+						<p class="calcStatValue">8000</p>
+						<p class="calcStatLabel">Stamina</p>
+						<p class="calcStatValue">7000</p>
+						<p class="calcStatLabel">Haste</p>
+						<p class="calcStatValue">6000</p>
+						<p class="calcStatLabel">Hit</p>
+						<p class="calcStatPct">11%</p>
+						<p class="calcStatValue">5000</p>
+						<p class="calcStatLabel">Expertise</p>
+						<p class="calcStatPct">8.11%</p>
+						<p class="calcStatValue">4000</p>
+						<p class="calcStatLabel">Mastery</p>
+						<p class="calcStatValue">3000</p>
+					</div>
+					<div id="weapons">
+						<?=printItem($equip['mainhand'])?>
+						<?=printItem($equip['offhand'])?>
+						<?=printItem($equip['ranged'])?>
+					</div>
+				</td>
+				<td id="rightItems">
+					<?=printItem($equip['hands'])?>
+					<?=printItem($equip['waist'])?>
+					<?=printItem($equip['legs'])?>
+					<?=printItem($equip['feet'])?>
+					<?=printItem($equip['ring1'])?>
+					<?=printItem($equip['ring2'])?>
+					<?=printItem($equip['trinket1'])?>
+					<?=printItem($equip['trinket2'],true)?>
+				</td>
 			</tr>
 		</table>
 		<div id="footer">
-			<a href="https://github.com/cleversoap/Shadowcraft-Extended-UI">UI</a> by keys@saurfang<br/>
-			<a href="https://github.com/Aldriana/ShadowCraft-Engine/">Engine</a> by aldriana@doomhammer
+			<a href="https://github.com/cleversoap/Shadowcraft-Extended-UI" target="_blank">UI</a> by keys@saurfang<br/>
+			<a href="https://github.com/Aldriana/ShadowCraft-Engine/" target="_blank">Engine</a> by aldriana@doomhammer
 		</div>
 		</div>
 	</body>

@@ -13,6 +13,7 @@ body
 	text-align: center;
 	background: #333;
 	border-radius: 10px;
+	-moz-border-radius: 10px;
 }
 
 #mainTable
@@ -30,50 +31,100 @@ body
 #mainTable td
 {
 	font-size: 10px;
-	background: #CCC;
+	background: #111;
 	border-radius: 10px;
+	-moz-border-radius: 10px;
 	padding: 3px;
 	vertical-align: top;
-	height: 100px;
 }
 
 #mainTable td.column
 {
-	width: 200px;
+	width: 250px;
 }
 
 .itemSlot
 {
 	/*border: 1px solid #FF0000;*/
-	height: 150px;
+	width: 250px;
+	height: 100px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	padding: 5px;
+	margin-bottom: 5px;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#111), to(#333));
+	background: -moz-linear-gradient(90deg,#333,#111);
+}
+
+.lastRow
+{
+	margin-bottom: 0px;
 }
 
 .itemIcon
 {
 	display: block;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	border: 2px solid black;
+    width: 36px;
+    height: 36px;
+}
+
+#rightItems .itemIcon
+{
+	float: right;
 }
 
 .itemStats
 {
 	float: left;
+	color: #FFF;
 }
+
+#rightItems .itemStats
+{
+	float: right;
+	clear: right;
+	text-align: right;
+}
+
 
 .itemMods
 {
 	margin-top: -20px;
+	float: right;
+}
+
+#rightItems .itemMods
+{
+	float: left;
 }
 
 .itemMods p
 {
 	background: #BB33BB;
 	border-radius: 2px;
-	margin: 2px 2px 2px 95px;
+	-moz-border-radius: 2px;
+	margin: 3px;
+	width: 150px;
+	text-align: right;
+}
+
+#rightItems .itemMods p
+{
+	text-align: left;
 }
 
 .itemTitle
 {
 	font-weight: bold;
 	float: right;
+}
+
+#rightItems .itemTitle
+{
+	float: left;
 }
 
 .quality3
@@ -83,11 +134,39 @@ body
 
 #dataDisplay
 {
-	width: 400px;
-	min-height: 400px;
+	width: 323px;
 	margin: 5px;
-	border-radius: 10px;
-	background-color: #CCC;
+	color: #FFF;
+}
+
+#dataDisplay p
+{
+	font-size: 20px;
+	margin: 5px;
+}
+
+.calcStatLabel
+{
+	float: left;
+	clear: left;
+}
+
+.calcStatPct
+{
+	float: right;
+}
+
+.calcStatValue
+{
+	float: right;
+	clear: right;
+}
+
+#weapons
+{
+	clear: both;
+	width: 250px;
+	text-align: left;
 }
 
 #footer
