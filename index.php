@@ -75,17 +75,16 @@ function printItem($id="",$lastRow=false)
 					</form>
 				</th>
 			</tr>
-			<tr>
-				<td id="leftItems" class="column">
+		</table>
+				<div id="leftItems">
 					<?=printItem($equip['head'])?>
 					<?=printItem($equip['neck'])?>
 					<?=printItem($equip['shoulders'])?>
 					<?=printItem($equip['back'])?>
 					<?=printItem($equip['chest'])?>
 					<?=printItem($equip['wrist'])?>
-				</td>
-				<td id="core" align="center" valign="top">
-					<div id="dataDisplay">
+		</div>
+		<div id="dataDisplay">
 						<p class="calcStatLabel">Agility</p>
 						<p class="calcStatValue">10000</p>
 						<p class="calcStatLabel">Attack Power</p>
@@ -105,14 +104,13 @@ function printItem($id="",$lastRow=false)
 						<p class="calcStatValue">4000</p>
 						<p class="calcStatLabel">Mastery</p>
 						<p class="calcStatValue">3000</p>
-					</div>
-					<div id="weapons">
-						<?=printItem($equip['mainhand'])?>
-						<?=printItem($equip['offhand'])?>
-						<?=printItem($equip['ranged'])?>
-					</div>
-				</td>
-				<td id="rightItems">
+		<div id="weapons">
+			<?=printItem($equip['mainhand'])?>
+			<?=printItem($equip['offhand'])?>
+			<?=printItem($equip['ranged'])?>
+		</div>
+		</div>
+		<div id="rightItems">
 					<?=printItem($equip['hands'])?>
 					<?=printItem($equip['waist'])?>
 					<?=printItem($equip['legs'])?>
@@ -121,9 +119,7 @@ function printItem($id="",$lastRow=false)
 					<?=printItem($equip['ring2'])?>
 					<?=printItem($equip['trinket1'])?>
 					<?=printItem($equip['trinket2'],true)?>
-				</td>
-			</tr>
-		</table>
+		</div>
 		<div id="footer">
 			<a href="https://github.com/cleversoap/Shadowcraft-Extended-UI" target="_blank">UI</a> by keys@saurfang<br/>
 			<a href="https://github.com/Aldriana/ShadowCraft-Engine/" target="_blank">Engine</a> by aldriana@doomhammer
