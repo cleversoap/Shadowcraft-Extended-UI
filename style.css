@@ -238,25 +238,47 @@ body
 	-moz-border-radius: 0px 0px 10px 10px;
 }
 
-/* RACE SLIDER */
-#raceSlider
+/* SLIDERS */
+.slideSlot
 {
 	overflow: hidden;
 }
 
-#raceSlider ul
+.slideSlot ul
 {
 	list-style-type: none;
 	width: 4000px;
 }
 
-#raceSlider li
+.slideSlot li
 {
 	position: relative;
 	float: left;
 	width: 250px;
 	height: 90px;
 }
+
+.slideSlot a
+{
+	display: block;
+	width: 24px;
+	height: 24x;
+	position: absolute;
+}
+
+.slideSlot .navLeft
+{
+	float: left;
+	margin-top: -60px;
+}
+
+.slideSlot .navRight
+{
+	float: right;
+	margin-top: -60px;
+	margin-right: 20px;
+}
+
 
 #raceSlider li img
 {

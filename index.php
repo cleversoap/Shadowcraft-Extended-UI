@@ -62,7 +62,8 @@ function printItem($id="",$lastRow=false)
 		<script type="text/javascript" src="easySlider.js"></script> <!-- MOVE TO BOTTOM WHEN DONE -->
 		<script type="text/javascript">
 		$(document).ready(function(){	
-			$("#raceSlider").easySlider({auto:false, continuous:true});
+			$("#raceSlider").easySlider({continuous:true, controlsShow:false, prevId:'racePrev', nextId:'raceNext'});
+			$("#specSlider").easySlider({continuous:true, controlsShow:false, prevId:'specPrev', nextId:'specNext'});
 		});
 		</script>
 		<link rel="stylesheet" type="text/css" href="style.css" />
@@ -84,8 +85,8 @@ function printItem($id="",$lastRow=false)
 					
 		</table>
 				<div id="leftItems">
-					<div class="itemSlot" id="raceSlider">
-							<ul id="raceList">
+					<div class="itemSlot slideSlot" id="raceSlider">
+							<ul>
 								<li><img src="img/crest_goblin.jpg" alt="GOBLIN" /></li>
 								<li><img src="img/crest_gnome.jpg" alt="GNOME" /></li>
 								<li><img src="img/crest_nelf.jpg" alt="NIGHT ELF" /></li>
@@ -97,15 +98,17 @@ function printItem($id="",$lastRow=false)
 								<li><img src="img/crest_troll.jpg" alt="TROLL" /></li>
 								<li><img src="img/crest_undead.jpg" alt="UNDEAD" /></li>
 							</ul>
-							<span id="raceNext"></span>
-							<span id="racePrev"></span>
+							<span id="racePrev" class="navLeft"><a href="javascript:void(0);" id="racePrev">&lt;</a></span>
+							<span id="raceNext" class="navRight"><a href="javascript:void(0);" id="raceNext">&gt;</a></span>
 					</div>
-					<div class="itemSlot">
-						<select name="talents">
-							<option>ASSASSINATION</option>
-							<option>COMBAT</option>
-							<option>SUBTLETY</option>
-						</select>
+					<div class="itemSlot slideSlot" id="specSlider">
+						<ul>
+							<li><img src="img/spec_assass.jpg" alt="ASSASSINATION" /></li>
+							<li><img src="img/spec_combat.jpg" alt="COMBAT" /></li>
+							<li><img src="img/spec_sub.jpg" alt="SUBTLETY" /></li>
+						</ul>
+						<span id="specPrev" class="navLeft"><a href="javascript:void(0);">&lt;</a></span>
+						<span id="specNext" class="navRight"><a href="javascript:void(0);">&gt;</a></span>
 					</div>
 					<?=printItem($equip['head'])?>
 					<?=printItem($equip['neck'])?>
