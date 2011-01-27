@@ -237,3 +237,29 @@ body
 	border-radius: 0px 0px 10px 10px;
 	-moz-border-radius: 0px 0px 10px 10px;
 }
+
+/* RACE SLIDER */
+#raceSlider
+{
+	overflow: hidden;
+}
+
+#raceSlider ul
+{
+	list-style-type: none;
+	width: 4000px;
+}
+
+#raceSlider li
+{
+	position: relative;
+	float: left;
+	width: 250px;
+	height: 90px;
+}
+
+#raceSlider li img
+{
+	width:65px;
+	height: 90px;
+}

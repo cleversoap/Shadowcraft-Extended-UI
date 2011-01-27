@@ -54,11 +54,18 @@ function printItem($id="",$lastRow=false)
 }
 ?>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 		<title>Shadowcraft Extended UI</title>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="easySlider.js"></script> <!-- MOVE TO BOTTOM WHEN DONE -->
+		<script type="text/javascript">
+		$(document).ready(function(){	
+			$("#raceSlider").easySlider({auto:false, continuous:true});
+		});
+		</script>
 		<link rel="stylesheet" type="text/css" href="style.css" />
-		<script type="text/javascript" language="javascript" href="jquery.js"></script> <!-- MOVE TO BOTTOM WHEN DONE -->
 	</head>
 	<body>
 		<div id="mainContainer">
@@ -77,19 +84,21 @@ function printItem($id="",$lastRow=false)
 					
 		</table>
 				<div id="leftItems">
-					<div class="itemSlot">
-						<select name="race">
-							<option>GOBLIN</option>
-							<option>GNOME</option>
-							<option>NIGHT ELF</option>
-							<option>ORC</option>
-							<option>BLOOD ELF</option>
-							<option>HUMAN</option>
-							<option>DWARVE</option>
-							<option>WORGEN</option>
-							<option>TROLL</option>
-							<option>UNDEAD</option>
-						</select>
+					<div class="itemSlot" id="raceSlider">
+							<ul id="raceList">
+								<li><img src="img/crest_goblin.jpg" alt="GOBLIN" /></li>
+								<li><img src="img/crest_gnome.jpg" alt="GNOME" /></li>
+								<li><img src="img/crest_nelf.jpg" alt="NIGHT ELF" /></li>
+								<li><img src="img/crest_orc.jpg" alt="ORC" /></li>
+								<li><img src="img/crest_belf.jpg" alt="BLOOD ELF" /></li>
+								<li><img src="img/crest_human.jpg" alt="HUMAN" /></li>
+								<li><img src="img/crest_dwarf.jpg" alt="DWARF" /></li>
+								<li><img src="img/crest_worgen.jpg" alt="WORGEN" /></li>
+								<li><img src="img/crest_troll.jpg" alt="TROLL" /></li>
+								<li><img src="img/crest_undead.jpg" alt="UNDEAD" /></li>
+							</ul>
+							<span id="raceNext"></span>
+							<span id="racePrev"></span>
 					</div>
 					<div class="itemSlot">
 						<select name="talents">
