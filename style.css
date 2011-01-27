@@ -258,7 +258,7 @@ body
 	height: 90px;
 }
 
-.slideSlot a
+.slideSlot .navLeft a, .slideSlot .navRight a
 {
 	display: block;
 	width: 24px;
