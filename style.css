@@ -255,7 +255,14 @@ body
 	position: relative;
 	float: left;
 	width: 250px;
-	height: 90px;
+	height: 100px;
+}
+
+.slideSlot li p
+{
+	color: #FFF;
+	font-weight: bold;
+	margin: 3px;
 }
 
 .slideSlot .navLeft a, .slideSlot .navRight a
@@ -274,7 +281,7 @@ body
 .slideSlot .navLeft
 {
 	float: left;
-	margin-top: -60px;
+	margin-top: -80px;
 }
 
 .slideSlot .navLeft a
@@ -285,7 +292,7 @@ body
 .slideSlot .navRight
 {
 	float: right;
-	margin-top: -60px;
+	margin-top: -80px;
 	margin-right: 50px;
 }
 
@@ -294,4 +301,9 @@ body
 {
 	width:65px;
 	height: 90px;
+}
+
+#specSlider li img
+{
+	margin-top: 15px;
 }

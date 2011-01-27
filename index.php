@@ -103,9 +103,17 @@ function printItem($id="",$lastRow=false)
 					</div>
 					<div class="itemSlot slideSlot" id="specSlider">
 						<ul>
-							<li><img src="img/spec_assass.jpg" alt="ASSASSINATION" /></li>
-							<li><img src="img/spec_combat.jpg" alt="COMBAT" /></li>
-							<li><img src="img/spec_sub.jpg" alt="SUBTLETY" /></li>
+							<li>
+								<img src="img/spec_assass.jpg" alt="ASSASSINATION" />
+								<p>31/2/8</p>
+							</li>
+							<li>
+								<img src="img/spec_combat.jpg" alt="COMBAT" />
+								<p>7/31/3</p>
+							</li>
+							<li>
+								<img src="img/spec_sub.jpg" alt="SUBTLETY" />
+							</li>
 						</ul>
 						<span id="specPrev" class="navLeft"><a href="javascript:void(0);"><img src="img/slide_prev.png" alt="&lt;" /></a></span>
 						<span id="specNext" class="navRight"><a href="javascript:void(0);"><img src="img/slide_next.png" alt="&gt;" /></a></span>
