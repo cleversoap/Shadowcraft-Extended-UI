@@ -266,6 +266,11 @@ body
 	position: absolute;
 }
 
+.slideSlot a img
+{
+	border-width: 0px;
+}
+
 .slideSlot .navLeft
 {
 	float: left;
@@ -281,7 +286,7 @@ body
 {
 	float: right;
 	margin-top: -60px;
-	margin-right: 20px;
+	margin-right: 50px;
 }
 
 

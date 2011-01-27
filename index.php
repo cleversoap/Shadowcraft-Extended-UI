@@ -86,20 +86,20 @@ function printItem($id="",$lastRow=false)
 		</table>
 				<div id="leftItems">
 					<div class="itemSlot slideSlot" id="raceSlider">
-							<ul>
-								<li><img src="img/crest_goblin.jpg" alt="GOBLIN" /></li>
-								<li><img src="img/crest_gnome.jpg" alt="GNOME" /></li>
-								<li><img src="img/crest_nelf.jpg" alt="NIGHT ELF" /></li>
-								<li><img src="img/crest_orc.jpg" alt="ORC" /></li>
-								<li><img src="img/crest_belf.jpg" alt="BLOOD ELF" /></li>
-								<li><img src="img/crest_human.jpg" alt="HUMAN" /></li>
-								<li><img src="img/crest_dwarf.jpg" alt="DWARF" /></li>
-								<li><img src="img/crest_worgen.jpg" alt="WORGEN" /></li>
-								<li><img src="img/crest_troll.jpg" alt="TROLL" /></li>
-								<li><img src="img/crest_undead.jpg" alt="UNDEAD" /></li>
-							</ul>
-							<span id="racePrev" class="navLeft"><a href="javascript:void(0);" id="racePrev">&lt;</a></span>
-							<span id="raceNext" class="navRight"><a href="javascript:void(0);" id="raceNext">&gt;</a></span>
+						<ul>
+							<li><img src="img/crest_goblin.jpg" alt="GOBLIN" /></li>
+							<li><img src="img/crest_gnome.jpg" alt="GNOME" /></li>
+							<li><img src="img/crest_nelf.jpg" alt="NIGHT ELF" /></li>
+							<li><img src="img/crest_orc.jpg" alt="ORC" /></li>
+							<li><img src="img/crest_belf.jpg" alt="BLOOD ELF" /></li>
+							<li><img src="img/crest_human.jpg" alt="HUMAN" /></li>
+							<li><img src="img/crest_dwarf.jpg" alt="DWARF" /></li>
+							<li><img src="img/crest_worgen.jpg" alt="WORGEN" /></li>
+							<li><img src="img/crest_troll.jpg" alt="TROLL" /></li>
+							<li><img src="img/crest_undead.jpg" alt="UNDEAD" /></li>
+						</ul>
+						<span id="racePrev" class="navLeft"><a href="javascript:void(0);"><img src="img/slide_prev.png" alt="&lt;" /></a></span>
+						<span id="raceNext" class="navRight"><a href="javascript:void(0);"><img src="img/slide_next.png" alt="&gt;" /></a></span>
 					</div>
 					<div class="itemSlot slideSlot" id="specSlider">
 						<ul>
@@ -107,8 +107,8 @@ function printItem($id="",$lastRow=false)
 							<li><img src="img/spec_combat.jpg" alt="COMBAT" /></li>
 							<li><img src="img/spec_sub.jpg" alt="SUBTLETY" /></li>
 						</ul>
-						<span id="specPrev" class="navLeft"><a href="javascript:void(0);">&lt;</a></span>
-						<span id="specNext" class="navRight"><a href="javascript:void(0);">&gt;</a></span>
+						<span id="specPrev" class="navLeft"><a href="javascript:void(0);"><img src="img/slide_prev.png" alt="&lt;" /></a></span>
+						<span id="specNext" class="navRight"><a href="javascript:void(0);"><img src="img/slide_next.png" alt="&gt;" /></a></span>
 					</div>
 					<?=printItem($equip['head'])?>
 					<?=printItem($equip['neck'])?>
