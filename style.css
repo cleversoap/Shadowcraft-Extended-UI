@@ -276,6 +276,7 @@ body
 .slideSlot a img
 {
 	border-width: 0px;
+	border: none;
 }
 
 .slideSlot .navLeft

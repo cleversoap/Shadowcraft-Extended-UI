@@ -33,7 +33,7 @@ function printItem($id="",$lastRow=false)
 	<div class="itemTitle">
 		<a href="#"><?=$json->title?></a>
 	</div>
-	<div class="itemIcon" style="background-image:url('http://static.wowhead.com/images/wow/icons/medium/<?=$json->icon->img?>.jpg')">
+	<div class="itemIcon" style="background-image:url('http://static.wowhead.com/images/wow/icons/medium/<?=strtolower($json->icon->img)?>.jpg')">
 		<?=$json->ilvl?>
 	</div>
 	<div class="itemStats">
@@ -60,10 +60,15 @@ function printItem($id="",$lastRow=false)
 		<title>Shadowcraft Extended UI</title>
 		<script type="text/javascript" src="jquery.js"></script>
 		<script type="text/javascript" src="easySlider.js"></script> <!-- MOVE TO BOTTOM WHEN DONE -->
+		<script type="text/javascript" src="sc-extended.js"></script>
 		<script type="text/javascript">
-		$(document).ready(function(){	
+		$(document).ready(function()
+		{
+			// Create image sliders for race and spec
 			$("#raceSlider").easySlider({continuous:true, controlsShow:false, prevId:'racePrev', nextId:'raceNext'});
 			$("#specSlider").easySlider({continuous:true, controlsShow:false, prevId:'specPrev', nextId:'specNext'});
+			
+			// Create the array of items in place
 		});
 		</script>
 		<link rel="stylesheet" type="text/css" href="style.css" />
@@ -98,8 +103,8 @@ function printItem($id="",$lastRow=false)
 							<li><img src="img/crest_troll.jpg" alt="TROLL" /></li>
 							<li><img src="img/crest_undead.jpg" alt="UNDEAD" /></li>
 						</ul>
-						<span id="racePrev" class="navLeft"><a href="javascript:void(0);"><img src="img/slide_prev.png" alt="&lt;" /></a></span>
-						<span id="raceNext" class="navRight"><a href="javascript:void(0);"><img src="img/slide_next.png" alt="&gt;" /></a></span>
+						<span id="racePrev" class="navLeft"><a href="javascript:void(0);" onclick="javascript:slideRace(false);"><img src="img/slide_prev.png" alt="&lt;" /></a></span>
+						<span id="raceNext" class="navRight"><a href="javascript:void(0);" onclick="javascript:slideRace(true);"><img src="img/slide_next.png" alt="&gt;" /></a></span>
 					</div>
 					<div class="itemSlot slideSlot" id="specSlider">
 						<ul>
