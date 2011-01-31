@@ -193,17 +193,20 @@ body
 	margin-right: 30px;
 }
 
-#glyphs
+#btnBuffs
 {
-	clear: both;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	display: block;
+	cursor: pointer;
 }
 
 #buffs
 {
-	clear: both;
+	display: none;
 }
 
-#weapons
+#glyphs, #weapons
 {
 	padding-top: 30px;
 	clear: both;

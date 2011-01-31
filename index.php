@@ -14,8 +14,12 @@ else
 
 
 // Print an item in a slot
-function printItem($id="",$lastRow=false)
+function printItem($slot,$lastRow=false)
 {
+	global $equip;
+	
+	$id = $equip[$slot];
+
 	if(empty($id))
 		return;
 	
@@ -29,7 +33,7 @@ function printItem($id="",$lastRow=false)
 	$statAbrv = array('agility' => 'agi', 'stamina' => 'stam', 'expertise' => 'exp', 'haste' => 'haste', 'critical-strike' => 'crit', 'hit' => 'hit');
 ?>
 
-<div class="itemSlot<?=($lastRow ? ' lastRow' : '')?>" id="slot-<?=$id?>">
+<div class="itemSlot<?=($lastRow ? ' lastRow' : '')?>" id="slot-<?=$slot?>">
 	<div class="itemTitle">
 		<a href="#"><?=$json->title?></a>
 	</div>
@@ -68,7 +72,12 @@ function printItem($id="",$lastRow=false)
 			$("#raceSlider").easySlider({continuous:true, controlsShow:false, prevId:'racePrev', nextId:'raceNext'});
 			$("#specSlider").easySlider({continuous:true, controlsShow:false, prevId:'specPrev', nextId:'specNext'});
 			
-			// Create the array of items in place
+			// Setup buffs toggle button
+			$("#btnBuffs").click(function()
+			{
+	 			$("#buffs").slideToggle("slow");
+	  			$(this).toggleClass("active");
+			});
 		});
 		</script>
 		<link rel="stylesheet" type="text/css" href="style.css" />
@@ -123,12 +132,12 @@ function printItem($id="",$lastRow=false)
 						<span id="specPrev" class="navLeft"><a href="javascript:void(0);" onclick="javascript:slideSpec(false);"><img src="img/slide_prev.png" alt="&lt;" /></a></span>
 						<span id="specNext" class="navRight"><a href="javascript:void(0);" onclick="javascript:slideSpec(true);"><img src="img/slide_next.png" alt="&gt;" /></a></span>
 					</div>
-					<?=printItem($equip['head'])?>
-					<?=printItem($equip['neck'])?>
-					<?=printItem($equip['shoulders'])?>
-					<?=printItem($equip['back'])?>
-					<?=printItem($equip['chest'])?>
-					<?=printItem($equip['wrist'])?>
+					<?=printItem('head')?>
+					<?=printItem('neck')?>
+					<?=printItem('shoulders')?>
+					<?=printItem('back')?>
+					<?=printItem('chest')?>
+					<?=printItem('wrist')?>
 		</div>
 		<div id="dataDisplay">
 						<p class="calcStatLabel">Agility</p>
@@ -194,25 +203,28 @@ function printItem($id="",$lastRow=false)
 				<option value="vendetta">Vendetta</option>
 			</select>
 		</div>
+		<a id="btnBuffs">BUFFS</a>
 		<div id="buffs">
 			<input type="checkbox" value="buff-guild_feast" />
 			<label for="buff-guid_feast">Guild Feast</label>
+			<input type="checkbox" value="buff-tolvir_potion" />
+			<label for="buff-tolvir_potion">Potion of the Tol'vir</label>
 		</div>
 		<div id="weapons">
-			<?=printItem($equip['mainhand'])?>
-			<?=printItem($equip['offhand'])?>
-			<?=printItem($equip['ranged'])?>
+			<?=printItem('mainhand')?>
+			<?=printItem('offhand')?>
+			<?=printItem('ranged')?>
 		</div>
 		</div>
 		<div id="rightItems">
-					<?=printItem($equip['hands'])?>
-					<?=printItem($equip['waist'])?>
-					<?=printItem($equip['legs'])?>
-					<?=printItem($equip['feet'])?>
-					<?=printItem($equip['ring1'])?>
-					<?=printItem($equip['ring2'])?>
-					<?=printItem($equip['trinket1'])?>
-					<?=printItem($equip['trinket2'],true)?>
+					<?=printItem('hands')?>
+					<?=printItem('waist')?>
+					<?=printItem('legs')?>
+					<?=printItem('feet')?>
+					<?=printItem('ring1')?>
+					<?=printItem('ring2')?>
+					<?=printItem('trinket1')?>
+					<?=printItem('trinket2',true)?>
 		</div>
 		<div id="footer">
 			<a href="https://github.com/cleversoap/Shadowcraft-Extended-UI" target="_blank">UI</a> by keys@saurfang<br/>
