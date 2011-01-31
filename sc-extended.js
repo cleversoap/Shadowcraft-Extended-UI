@@ -66,6 +66,31 @@ function calculate()
 {
 }
 
+// UI Functions
+function printItem(itemId,slot)
+{
+	$.getJson(
+				'http://localhost/Shadowcraft-Extended-UI/items.php',
+			  	{item:itemId},
+			  	function(data)
+			  	{
+			  		var slotBox = $("#slot-" + slot);
+			  		
+			  		// Set title, color, link
+			  		
+			  		
+			  		// Set image
+			  			// Item Level
+			  		
+			  		// Set stats
+			  		
+			  		// Set mods
+			  			// Enchants
+			  			// Gems
+			  	}
+			 );
+}
+
 function slideRace(forward)
 {
 	if (forward) // WTF?! Why is this even necessary - see below

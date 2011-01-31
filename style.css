@@ -193,6 +193,16 @@ body
 	margin-right: 30px;
 }
 
+#glyphs
+{
+	clear: both;
+}
+
+#buffs
+{
+	clear: both;
+}
+
 #weapons
 {
 	padding-top: 30px;

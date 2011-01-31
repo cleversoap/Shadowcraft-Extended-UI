@@ -29,7 +29,7 @@ function printItem($id="",$lastRow=false)
 	$statAbrv = array('agility' => 'agi', 'stamina' => 'stam', 'expertise' => 'exp', 'haste' => 'haste', 'critical-strike' => 'crit', 'hit' => 'hit');
 ?>
 
-<div class="itemSlot<?=($lastRow ? ' lastRow' : '')?>">
+<div class="itemSlot<?=($lastRow ? ' lastRow' : '')?>" id="slot-<?=$id?>">
 	<div class="itemTitle">
 		<a href="#"><?=$json->title?></a>
 	</div>
@@ -150,6 +150,54 @@ function printItem($id="",$lastRow=false)
 						<p class="calcStatPct" id="stat-exp-pct">8.11%</p>
 						<p class="calcStatLabel">Mastery</p>
 						<p class="calcStatValue" id="stat-mast">3000</p>
+		<div id="glyphs">
+			<select id="glyph1">
+				<option value="adrenaline_rush">Adrenaline Rush</option>
+				<option value="backstab">Backstab</option>
+				<option value="eviscerate">Eviscerate</option>
+				<option value="hemorrhage">Hemorrhage</option>
+				<option value="killing_spree">Killing Spree</option>
+				<option value="mutilate">Mutilate</option>
+				<option value="revealing_strike">Revealing Strike</option>
+				<option value="rupture">Rupture</option>
+				<option value="shadow_dance">Shadow Dance</option>
+				<option value="sinister_strike">Sinister Strike</option>
+				<option value="slice_and_dice">Slice n' Dice</option>
+				<option value="vendetta">Vendetta</option>
+			</select>
+			<select id="glyph2">
+				<option value="adrenaline_rush">Adrenaline Rush</option>
+				<option value="backstab">Backstab</option>
+				<option value="eviscerate">Eviscerate</option>
+				<option value="hemorrhage">Hemorrhage</option>
+				<option value="killing_spree">Killing Spree</option>
+				<option value="mutilate">Mutilate</option>
+				<option value="revealing_strike">Revealing Strike</option>
+				<option value="rupture">Rupture</option>
+				<option value="shadow_dance">Shadow Dance</option>
+				<option value="sinister_strike">Sinister Strike</option>
+				<option value="slice_and_dice">Slice n' Dice</option>
+				<option value="vendetta">Vendetta</option>
+			</select>
+			<select id="glyph3">
+				<option value="adrenaline_rush">Adrenaline Rush</option>
+				<option value="backstab">Backstab</option>
+				<option value="eviscerate">Eviscerate</option>
+				<option value="hemorrhage">Hemorrhage</option>
+				<option value="killing_spree">Killing Spree</option>
+				<option value="mutilate">Mutilate</option>
+				<option value="revealing_strike">Revealing Strike</option>
+				<option value="rupture">Rupture</option>
+				<option value="shadow_dance">Shadow Dance</option>
+				<option value="sinister_strike">Sinister Strike</option>
+				<option value="slice_and_dice">Slice n' Dice</option>
+				<option value="vendetta">Vendetta</option>
+			</select>
+		</div>
+		<div id="buffs">
+			<input type="checkbox" value="buff-guild_feast" />
+			<label for="buff-guid_feast">Guild Feast</label>
+		</div>
 		<div id="weapons">
 			<?=printItem($equip['mainhand'])?>
 			<?=printItem($equip['offhand'])?>
