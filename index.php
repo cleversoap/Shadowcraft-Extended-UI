@@ -120,8 +120,8 @@ function printItem($id="",$lastRow=false)
 								<img src="img/spec_sub.jpg" alt="SUBTLETY" />
 							</li>
 						</ul>
-						<span id="specPrev" class="navLeft"><a href="javascript:void(0);"><img src="img/slide_prev.png" alt="&lt;" /></a></span>
-						<span id="specNext" class="navRight"><a href="javascript:void(0);"><img src="img/slide_next.png" alt="&gt;" /></a></span>
+						<span id="specPrev" class="navLeft"><a href="javascript:void(0);" onclick="javascript:slideSpec(false);"><img src="img/slide_prev.png" alt="&lt;" /></a></span>
+						<span id="specNext" class="navRight"><a href="javascript:void(0);" onclick="javascript:slideSpec(true);"><img src="img/slide_next.png" alt="&gt;" /></a></span>
 					</div>
 					<?=printItem($equip['head'])?>
 					<?=printItem($equip['neck'])?>
@@ -132,24 +132,24 @@ function printItem($id="",$lastRow=false)
 		</div>
 		<div id="dataDisplay">
 						<p class="calcStatLabel">Agility</p>
-						<p class="calcStatValue">10000</p>
+						<p class="calcStatValue" id="stat-agi">10000</p>
 						<p class="calcStatLabel">Attack Power</p>
-						<p class="calcStatValue">9000</p>
+						<p class="calcStatValue" id="stat-ap">9000</p>
 						<p class="calcStatLabel">Crit</p>
-						<p class="calcStatValue">8000</p>
-						<p class="calcStatPct">30.11%</p>
+						<p class="calcStatValue" id="stat-crit">8000</p>
+						<p class="calcStatPct" id="stat-crit-pct">30.11%</p>
 						<p class="calcStatLabel">Stamina</p>
-						<p class="calcStatValue">7000</p>
+						<p class="calcStatValue" id="stat-stam">7000</p>
 						<p class="calcStatLabel">Haste</p>
-						<p class="calcStatValue">6000</p>
+						<p class="calcStatValue" id="stat-haste">6000</p>
 						<p class="calcStatLabel">Hit</p>
-						<p class="calcStatValue">5000</p>
-						<p class="calcStatPct">11%</p>
+						<p class="calcStatValue" id="stat-hit">5000</p>
+						<p class="calcStatPct" id="stat-hit-pct">11%</p>
 						<p class="calcStatLabel">Expertise</p>
-						<p class="calcStatValue">4000</p>
-						<p class="calcStatPct">8.11%</p>
+						<p class="calcStatValue" id="stat-exp">4000</p>
+						<p class="calcStatPct" id="stat-exp-pct">8.11%</p>
 						<p class="calcStatLabel">Mastery</p>
-						<p class="calcStatValue">3000</p>
+						<p class="calcStatValue" id="stat-mast">3000</p>
 		<div id="weapons">
 			<?=printItem($equip['mainhand'])?>
 			<?=printItem($equip['offhand'])?>
