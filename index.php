@@ -85,7 +85,12 @@ function printItem($slot,$lastRow=false)
 	<body>
 		<div id="mainContainer">
 		<img src="img/header.png" alt="ShadowCraft" />
-		<div id="quote">&lt;RANDOM ROGUE QUOTE&gt;</div>
+		<div id="quote">
+			<?php 
+				$lines = file("quotes.txt");
+				echo $lines[array_rand($lines)];
+			?>
+		</div>
 	
 					<form action="index.php" method="get">
 						<select name="region">
