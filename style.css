@@ -284,6 +284,8 @@ body
 	width: 24px;
 	height: 24x;
 	position: absolute;
+	border: none;
+	outline: none;
 }
 
 .slideSlot a img
