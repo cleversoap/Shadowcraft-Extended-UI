@@ -35,7 +35,7 @@ function printItem($slot,$lastRow=false)
 
 <div class="itemSlot<?=($lastRow ? ' lastRow' : '')?>" id="slot-<?=$slot?>">
 	<div class="itemTitle">
-		<a href="#"><?=$json->title?></a>
+		<a href="#" class="quality<?=$json->quality?>"><?=$json->title?></a>
 	</div>
 	<div class="itemIcon" style="background-image:url('http://static.wowhead.com/images/wow/icons/medium/<?=strtolower($json->icon->img)?>.jpg')">
 		<?=$json->ilvl?>
@@ -167,7 +167,7 @@ function printItem($slot,$lastRow=false)
 		<div id="glyphs">
 			<select id="glyph1">
 				<option value="adrenaline_rush">Adrenaline Rush</option>
-				<option value="backstab">Backstab</option>
+				<option value="backstab" selected="true">Backstab</option>
 				<option value="eviscerate">Eviscerate</option>
 				<option value="hemorrhage">Hemorrhage</option>
 				<option value="killing_spree">Killing Spree</option>
@@ -185,7 +185,7 @@ function printItem($slot,$lastRow=false)
 				<option value="eviscerate">Eviscerate</option>
 				<option value="hemorrhage">Hemorrhage</option>
 				<option value="killing_spree">Killing Spree</option>
-				<option value="mutilate">Mutilate</option>
+				<option value="mutilate" selected="true">Mutilate</option>
 				<option value="revealing_strike">Revealing Strike</option>
 				<option value="rupture">Rupture</option>
 				<option value="shadow_dance">Shadow Dance</option>
@@ -201,7 +201,7 @@ function printItem($slot,$lastRow=false)
 				<option value="killing_spree">Killing Spree</option>
 				<option value="mutilate">Mutilate</option>
 				<option value="revealing_strike">Revealing Strike</option>
-				<option value="rupture">Rupture</option>
+				<option value="rupture" selected="true">Rupture</option>
 				<option value="shadow_dance">Shadow Dance</option>
 				<option value="sinister_strike">Sinister Strike</option>
 				<option value="slice_and_dice">Slice n' Dice</option>
@@ -210,10 +210,16 @@ function printItem($slot,$lastRow=false)
 		</div>
 		<a id="btnBuffs">BUFFS</a>
 		<div id="buffs">
-			<input type="checkbox" value="buff-guild_feast" />
-			<label for="buff-guid_feast">Guild Feast</label>
-			<input type="checkbox" value="buff-tolvir_potion" />
-			<label for="buff-tolvir_potion">Potion of the Tol'vir</label>
+			<fieldset>
+				<legend>FOOD</legend>
+				<input type="checkbox" value="buff-guild_feast" />
+				<label for="buff-guid_feast">Guild Feast</label>
+			</fieldset>
+			<fieldset>
+				<legend>POTIONS</legend>
+				<input type="checkbox" value="buff-tolvir_potion" />
+				<label for="buff-tolvir_potion">Potion of the Tol'vir</label>
+			</fieldset>
 		</div>
 		<div id="weapons">
 			<?=printItem('mainhand')?>
