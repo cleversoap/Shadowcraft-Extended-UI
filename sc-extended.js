@@ -69,24 +69,38 @@ function calculate()
 // UI Functions
 function printItem(itemId,slot)
 {
-	$.getJson(
+	//alert("Getting item: " + itemId + " for slot: " + slot);
+	var slotBox = $("#slot-" + slot);
+	
+	// Clear contents and put loading image
+	slotBox.empty();
+	slotBox.append("<img src=\"img/loader.gif\" alt=\"Loading...\" />");
+
+	$.getJSON(
 				'http://localhost/Shadowcraft-Extended-UI/items.php',
 			  	{item:itemId},
 			  	function(data)
 			  	{
-			  		var slotBox = $("#slot-" + slot);
+			  		// Clear contents again
+			  		slotBox.empty();
 			  		
-			  		// Set title, color, link
+			  		// Add a title
+			  		slotBox.append("<div class=\"itemTitle\"><a href=\"#\" class=\"quality" + data.quality + "\">" + data.title + "</a></div>");
 			  		
-			  		
-			  		// Set image
-			  			// Item Level
-			  		
-			  		// Set stats
-			  		
-			  		// Set mods
-			  			// Enchants
-			  			// Gems
+			  		// Icon and iLvl
+			  		slotBox.append("<div class=\"itemIcon\" style=\"background-image:url('http://static.wowhead.com/images/wow/icons/medium/" + data.icon.img.toLowerCase() + ".jpg')\">" + data.ilvl + "</div>");
+			  	
+			  		// Stats
+			  		slotBox.append("<div class=\"itemStats\"></div>");
+			  		for (var stat in data.stats)
+						slotBox.find(".itemStats").append("<p class=\"itemStat\">+" + data.stats[stat] + " " + stat + "</p>");
+						
+					// Mods
+					slotBox.append("<div class=\"itemMods\"></div>");
+					
+					// Gems
+					for (var gem in data.gems)
+						slotBox.find(".itemMods").append("<p style=\"background-color:" + data.gems[gem].color + ";\">" + data.gems[gem].color + "</p>");
 			  	}
 			 );
 }

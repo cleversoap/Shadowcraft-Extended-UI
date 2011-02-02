@@ -32,7 +32,7 @@ $out->icon->img = trim($json->icon);
 $out->icon->id = trim($json->displayid);
 
 // Stats
-$stats = array('agi' => 'agility', 'sta' => 'stamina', 'exprtng' => 'expertise', 'hastertng' => 'haste', 'critstrkrtng' => 'critical-strike', 'hitrtng' => 'hit');
+$stats = array('agi' => 'agi', 'sta' => 'stam', 'exprtng' => 'exp', 'hastertng' => 'haste', 'critstrkrtng' => 'crit', 'hitrtng' => 'hit');
 foreach($stats as $key => $value)
 {
 	if(!empty($json->{$key}))

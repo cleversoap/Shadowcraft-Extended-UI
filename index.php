@@ -14,47 +14,9 @@ else
 
 
 // Print an item in a slot
-function printItem($slot,$lastRow=false)
+function makeSlot($slot)
 {
-	global $equip;
-	
-	$id = $equip[$slot];
-
-	if(empty($id))
-		return;
-	
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, "http://localhost/Shadowcraft-Extended-UI/items.php?item=" . $id); 
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	$json = json_decode(curl_exec($ch));
-	
-	
-	// Just to simplify the output - I realize this is horribly redundant
-	$statAbrv = array('agility' => 'agi', 'stamina' => 'stam', 'expertise' => 'exp', 'haste' => 'haste', 'critical-strike' => 'crit', 'hit' => 'hit');
-?>
-
-<div class="itemSlot<?=($lastRow ? ' lastRow' : '')?>" id="slot-<?=$slot?>">
-	<div class="itemTitle">
-		<a href="#" class="quality<?=$json->quality?>"><?=$json->title?></a>
-	</div>
-	<div class="itemIcon" style="background-image:url('http://static.wowhead.com/images/wow/icons/medium/<?=strtolower($json->icon->img)?>.jpg')">
-		<?=$json->ilvl?>
-	</div>
-	<div class="itemStats">
-		<?php
-			foreach($json->stats as $stat => $value)
-				echo '<p class="itemStat">+' . $value . ' ' . $statAbrv[$stat] . '</p>';
-		?>
-	</div>
-	<div class="itemMods">
-		<?php
-			foreach($json->gems as $gem)
-				echo '<p style="background-color:' . $gem->color . ';">' . $gem->color . '</p>';
-		?>
-	</div>
-</div>
-
-<?php
+	echo '<div class="itemSlot" id="slot-' . $slot . '"></div>';
 }
 ?>
 
@@ -78,6 +40,12 @@ function printItem($slot,$lastRow=false)
 	 			$("#buffs").slideToggle("slow");
 	  			$(this).toggleClass("active");
 			});
+			
+			// Retrieve equipment from ajax
+			<?php 
+				foreach ($equip as $slot => $item)
+					echo 'printItem(' . $item . ',"' . $slot . '");';
+			?>
 		});
 		</script>
 		<link rel="stylesheet" type="text/css" href="style.css" />
@@ -137,12 +105,12 @@ function printItem($slot,$lastRow=false)
 						<span id="specPrev" class="navLeft"><a href="javascript:void(0);" onclick="javascript:slideSpec(false);"><img src="img/slide_prev.png" alt="&lt;" /></a></span>
 						<span id="specNext" class="navRight"><a href="javascript:void(0);" onclick="javascript:slideSpec(true);"><img src="img/slide_next.png" alt="&gt;" /></a></span>
 					</div>
-					<?=printItem('head')?>
-					<?=printItem('neck')?>
-					<?=printItem('shoulders')?>
-					<?=printItem('back')?>
-					<?=printItem('chest')?>
-					<?=printItem('wrist')?>
+					<?=makeSlot('head')?>
+					<?=makeSlot('neck')?>
+					<?=makeSlot('shoulders')?>
+					<?=makeSlot('back')?>
+					<?=makeSlot('chest')?>
+					<?=makeSlot('wrist')?>
 		</div>
 		<div id="dataDisplay">
 						<p class="calcStatLabel">Agility</p>
@@ -222,20 +190,20 @@ function printItem($slot,$lastRow=false)
 			</fieldset>
 		</div>
 		<div id="weapons">
-			<?=printItem('mainhand')?>
-			<?=printItem('offhand')?>
-			<?=printItem('ranged')?>
+			<?=makeSlot('mainhand')?>
+			<?=makeSlot('offhand')?>
+			<?=makeSlot('ranged')?>
 		</div>
 		</div>
 		<div id="rightItems">
-					<?=printItem('hands')?>
-					<?=printItem('waist')?>
-					<?=printItem('legs')?>
-					<?=printItem('feet')?>
-					<?=printItem('ring1')?>
-					<?=printItem('ring2')?>
-					<?=printItem('trinket1')?>
-					<?=printItem('trinket2',true)?>
+					<?=makeSlot('hands')?>
+					<?=makeSlot('waist')?>
+					<?=makeSlot('legs')?>
+					<?=makeSlot('feet')?>
+					<?=makeSlot('ring1')?>
+					<?=makeSlot('ring2')?>
+					<?=makeSlot('trinket1')?>
+					<?=makeSlot('trinket2',true)?>
 		</div>
 		<div id="footer">
 			<a href="https://github.com/cleversoap/Shadowcraft-Extended-UI" target="_blank">UI</a> by keys@saurfang<br/>
