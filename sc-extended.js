@@ -87,6 +87,9 @@ function printItem(itemId,slot)
 			  		// Add a title
 			  		slotBox.append("<div class=\"itemTitle\"><a href=\"#\" class=\"quality" + data.quality + "\">" + data.title + "</a></div>");
 			  		
+			  		// Make the title open up a selector box
+			  		slotBox.find(".itemTitle").click(openGearSelector);
+			  		
 			  		// Icon and iLvl
 			  		slotBox.append("<div class=\"itemIcon\" style=\"background-image:url('http://static.wowhead.com/images/wow/icons/medium/" + data.icon.img.toLowerCase() + ".jpg')\">" + data.ilvl + "</div>");
 			  	
@@ -103,6 +106,15 @@ function printItem(itemId,slot)
 						slotBox.find(".itemMods").append("<p style=\"background-color:" + data.gems[gem].color + ";\">" + data.gems[gem].color + "</p>");
 			  	}
 			 );
+}
+
+function openGearSelector()
+{
+	// Remove all current gear selection boxes
+	$(".selectGear").remove();
+	
+	// Create a new one
+	alert($(this).parent().attr('id').substring(5));
 }
 
 function slideRace(forward)

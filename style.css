@@ -359,3 +359,47 @@ body
 {
 	margin-top: 15px;
 }
+
+/* GEAR SELECTOR */
+.selectGear
+{
+	position: absolute;
+	top: 403px;
+	left: 400px;
+	color: #FFF;
+	display: block;
+	width: 300px;
+	height: 300px;
+	border: 2px solid;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	padding: 5px;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#111), to(#333));
+	background: -moz-linear-gradient(90deg,#333,#111);
+}
+
+.selectGear:after
+{
+	display: block;
+	position:absolute;
+	left: -40px;
+	top: 10px;
+	content:" ";
+	border-color:  transparent #FFF transparent transparent;
+	border-style:solid;
+	border-width:20px;	  
+}
+
+/*
+.selectGear:before
+{
+	display: block;
+	position:absolute;
+	left: -40px;
+	top: 10px;
+	content:" ";
+	border-color: transparent #FFF transparent transparent;
+	border-style:solid;
+	border-width:20px;
+}*/
+
