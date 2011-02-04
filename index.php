@@ -30,10 +30,6 @@ function makeSlot($slot)
 		<script type="text/javascript">
 		$(document).ready(function()
 		{
-			// Create image sliders for race and spec
-			$("#raceSlider").easySlider({continuous:true, controlsShow:false, prevId:'racePrev', nextId:'raceNext'});
-			$("#specSlider").easySlider({continuous:true, controlsShow:false, prevId:'specPrev', nextId:'specNext'});
-			
 			// Setup buffs toggle button
 			$("#btnBuffs").click(function()
 			{
@@ -44,8 +40,15 @@ function makeSlot($slot)
 			// Retrieve equipment from ajax
 			<?php 
 				foreach ($equip as $slot => $item)
-					echo 'printItem(' . $item . ',"' . $slot . '");';
+				{
+					if($slot != 'shirt' && $slot != 'tabard' && $item != null)
+						echo 'printItem(' . $item . ',"' . $slot . '");';
+				}
 			?>
+			
+			// Create image sliders for race and spec
+			$("#raceSlider").easySlider({continuous:true, controlsShow:false, prevId:'racePrev', nextId:'raceNext'});
+			$("#specSlider").easySlider({continuous:true, controlsShow:false, prevId:'specPrev', nextId:'specNext'});
 		});
 		</script>
 		<link rel="stylesheet" type="text/css" href="style.css" />
