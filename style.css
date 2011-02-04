@@ -374,8 +374,8 @@ body
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#111), to(#333));
 	background: -moz-linear-gradient(90deg,#333,#111);
 	/* css3 drop shadow */
-    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);   
+    -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.75);   
     /* css3 border radius */
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
