@@ -147,7 +147,7 @@ function openGearSelector()
 		gBox.css("left",400);
 	}
 	
-	gBox.css("top",$(this).parent().position().top);
+	gBox.css("top",$(this).parent().position().top - 20);
 }
 
 function slideRace(forward)
