@@ -106,9 +106,6 @@ function makeSlot($slot)
 						<span id="specNext" class="navRight"><a href="javascript:void(0);" onclick="javascript:slideSpec(true);"><img src="img/slide_next.png" alt="&gt;" /></a></span>
 					</div>
 					<?=makeSlot('head')?>
-					<div class="selectGear" id="select-head">
-						Clicking on an item title will open the item selector
-					</div>
 					<?=makeSlot('neck')?>
 					<?=makeSlot('shoulders')?>
 					<?=makeSlot('back')?>

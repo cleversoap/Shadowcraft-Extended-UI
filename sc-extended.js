@@ -85,7 +85,7 @@ function printItem(itemId,slot)
 			  		slotBox.empty();
 			  		
 			  		// Add a title
-			  		slotBox.append("<div class=\"itemTitle\"><a href=\"#\" class=\"quality" + data.quality + "\">" + data.title + "</a></div>");
+			  		slotBox.append("<div class=\"itemTitle\"><a class=\"quality" + data.quality + "\">" + data.title + "</a></div>");
 			  		
 			  		// Make the title open up a selector box
 			  		slotBox.find(".itemTitle").click(openGearSelector);
@@ -110,11 +110,33 @@ function printItem(itemId,slot)
 
 function openGearSelector()
 {
-	// Remove all current gear selection boxes
-	$(".selectGear").remove();
 	
-	// Create a new one
-	alert($(this).parent().attr('id').substring(5));
+	// Get the slot to select gear from
+	var slot = $(this).parent().attr('id').substring(5);
+	
+	// If the gearbox currently open is the one that was clicked then just close it and return
+	if ($(".selectGear").length)
+	{
+		//alert($(".selectGear").attr('id').substring(6));
+	
+		if($(".selectGear").attr('id').substring(7) == slot)
+		{
+			$(".selectGear").remove();
+			return;
+		}
+	
+		// Remove all current gear selection boxes
+		$(".selectGear").remove();
+	}
+	
+	
+	// Create a new box
+	$("body").append('<div class="selectGear" id="select-' + slot + '">Selecting items for ' + slot + '</div>');
+	
+	// Get the box
+	var gBox = $(".selectGear");
+	gBox.css("left",400);
+	gBox.css("top",$(this).parent().position().top);
 }
 
 function slideRace(forward)
