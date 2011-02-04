@@ -5,7 +5,7 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "http://" . $_GET["region"] . ".battle.net/wow/en/character/" . $_GET["realm"] . "/" . $_GET["name"] . "/advanced"); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-preg_match_all("/\<div class=\"slot-contents\"\>\s*<a href=\"\/wow\/en\/item\/(\d+)\"/",curl_exec($ch),$out, PREG_PATTERN_ORDER);
+preg_match_all("/\<div class=\"slot-contents\"\>\s*<a href=\"(?:javascript:;|\/wow\/en\/item\/(\d+))\"/",curl_exec($ch),$out, PREG_PATTERN_ORDER);
 
 $arm = array();
 $arm['head'] = $out[1][0];
