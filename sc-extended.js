@@ -135,7 +135,18 @@ function openGearSelector()
 	
 	// Get the box
 	var gBox = $(".selectGear");
-	gBox.css("left",400);
+	
+	// There must be a better way to check this but okay
+	if($(this).parent().parent().attr('id') == 'rightItems')
+	{
+		gBox.addClass("selectGearRight");
+		gBox.css("left",550);
+	}
+	else
+	{
+		gBox.css("left",400);
+	}
+	
 	gBox.css("top",$(this).parent().position().top);
 }
 

@@ -393,6 +393,13 @@ body
 	border-width:20px;	  
 }
 
+.selectGearRight:after
+{
+	left: 310px;
+	top: 10px;
+	border-color: transparent transparent transparent #FFF;
+}
+
 /*
 .selectGear:before
 {
