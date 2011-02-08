@@ -413,3 +413,8 @@ body
 	border-width:20px;
 }*/
 
+.selectGear .itemTitle
+{
+	float: left;
+}
+

@@ -1,22 +1,5 @@
 // Array of all items the user has equipped
 var equip = new Array();
-equip['head'] = null;
-equip['neck'] = null;
-equip['shoulders'] = null;
-equip['back'] = null;
-equip['chest'] = null;
-equip['wrist'] = null;
-equip['hands'] = null;
-equip['waist'] = null;
-equip['legs'] = null;
-equip['feet'] = null;
-equip['ring1'] = null;
-equip['ring2'] = null;
-equip['trinket1'] = null;
-equip['trinket2'] = null;
-equip['mainhand'] = null;
-equip['offhand'] = null;
-equip['ranged'] = null;
 
 // Array of all the stats for the user
 var stats = new Array();
@@ -81,31 +64,63 @@ function printItem(itemId,slot)
 			  	{item:itemId},
 			  	function(data)
 			  	{
-			  		// Clear contents again
-			  		slotBox.empty();
-			  		
-			  		// Add a title
-			  		slotBox.append("<div class=\"itemTitle\"><a class=\"quality" + data.quality + "\">" + data.title + "</a></div>");
-			  		
-			  		// Make the title open up a selector box
-			  		slotBox.find(".itemTitle").click(openGearSelector);
-			  		
-			  		// Icon and iLvl
-			  		slotBox.append("<div class=\"itemIcon\" style=\"background-image:url('http://static.wowhead.com/images/wow/icons/medium/" + data.icon.img.toLowerCase() + ".jpg')\">" + data.ilvl + "</div>");
-			  	
-			  		// Stats
-			  		slotBox.append("<div class=\"itemStats\"></div>");
-			  		for (var stat in data.stats)
-						slotBox.find(".itemStats").append("<p class=\"itemStat\">+" + data.stats[stat] + " " + stat + "</p>");
-						
-					// Mods
-					slotBox.append("<div class=\"itemMods\"></div>");
-					
-					// Gems
-					for (var gem in data.gems)
-						slotBox.find(".itemMods").append("<p style=\"background-color:" + data.gems[gem].color + ";\">" + data.gems[gem].color + "</p>");
+			  		printItemSlot(slot,data);
 			  	}
 			 );
+}
+
+function printItemSlot(slot,data)
+{
+	var slotBox = $("#slot-" + slot);
+	
+	// Clear contents again
+	slotBox.empty();
+	
+	// Add a title
+	slotBox.append("<div class=\"itemTitle\"><a class=\"quality" + data.quality + "\">" + data.title + "</a></div>");
+	
+	// Make the title open up a selector box
+	slotBox.find(".itemTitle").click(openGearSelector);
+	
+	// Icon and iLvl
+	slotBox.append("<div class=\"itemIcon\" style=\"background-image:url('http://static.wowhead.com/images/wow/icons/medium/" + data.icon.img.toLowerCase() + ".jpg')\">" + data.ilvl + "</div>");
+	
+	// Stats
+	slotBox.append("<div class=\"itemStats\"></div>");
+	for (var stat in data.stats)
+	slotBox.find(".itemStats").append("<p class=\"itemStat\">+" + data.stats[stat] + " " + stat + "</p>");
+	
+	// Mods
+	slotBox.append("<div class=\"itemMods\"></div>");
+	
+	// Gems
+	for (var gem in data.gems)
+	slotBox.find(".itemMods").append("<p style=\"background-color:" + data.gems[gem].color + ";\">" + data.gems[gem].color + "</p>");
+	
+	// Assign the item to the user's equipment set
+	setItem(slot,data);
+}
+
+function setItem(slot,item)
+{
+	equip[slot] = item;
+}
+
+function getItem(slot)
+{
+	return equip[slot];
+}
+
+function printSelectItem(slot,index,itemId)
+{
+	$.getJSON(
+				'http://localhost/Shadowcraft-Extended-UI/items.php',
+			  	{item:itemId},
+			  	function(data)
+			  	{
+			  		$(".selectGear").find("#select-" + slot + "-" + index).append('<a class="itemTitle quality' + data.quality + '">' + data.title + '</a>');
+			  	}
+			  );
 }
 
 function openGearSelector()
@@ -131,7 +146,7 @@ function openGearSelector()
 	
 	
 	// Create a new box
-	$("body").append('<div class="selectGear" id="select-' + slot + '">Selecting items for ' + slot + '</div>');
+	$("body").append('<div class="selectGear" id="select-' + slot + '"></div>');
 	
 	// Get the box
 	var gBox = $(".selectGear");
@@ -148,6 +163,18 @@ function openGearSelector()
 	}
 	
 	gBox.css("top",$(this).parent().position().top - 20);
+	
+	// Iterate through available slots for gear to select
+	for (var i = 0; i < itemdb[slot].length; i++)
+	{
+		// Add the container div
+		gBox.append('<div class="selectGearBox" id="select-' + slot + '-' + i + '"></div>');
+		
+		// Retrieve the item to put in the slot
+		// ignore if it is the currently selected item
+		if (itemdb[slot][i] != equip[slot].id)
+			printSelectItem(slot,i,itemdb[slot][i]);
+	}
 }
 
 function slideRace(forward)

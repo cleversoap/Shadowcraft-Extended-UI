@@ -26,6 +26,7 @@ function makeSlot($slot)
 		<title>Shadowcraft Extended UI</title>
 		<script type="text/javascript" src="jquery.js"></script>
 		<script type="text/javascript" src="easySlider.js"></script> <!-- MOVE TO BOTTOM WHEN DONE -->
+		<script type="text/javascript" src="itemdb.js"></script>
 		<script type="text/javascript" src="sc-extended.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function()
