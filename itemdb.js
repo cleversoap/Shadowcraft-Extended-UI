@@ -33,10 +33,12 @@ var itemdb = {
 	
 	hands:
 	[
+		60298	// Wind Dancer's Gloves
 	],
 	
 	waist:
 	[
+		56537	// Belt of Nefarious Whispers
 	],
 	
 	legs:
