@@ -118,9 +118,36 @@ function printSelectItem(slot,index,itemId)
 			  	{item:itemId},
 			  	function(data)
 			  	{
-			  		$(".selectGear").find("#select-" + slot + "-" + index).append('<a class="itemTitle quality' + data.quality + '">' + data.title + '</a>');
+			  		var sBox = $(".selectGear").find("#select-" + slot + "-" + index);
+			  		
+			  		sBox.append('<a class="itemTitle quality' + data.quality + '">' + data.title + '</a>');
+			  		
+			  		sBox.append('<div class="selectStats"></div>');
+			  		
+			  		var statsCompare = compareStats(slot,data.stats);
+			  		
+			  		for (var stat in data.stats)
+			  		{
+			  			sBox.find(".selectStats").append('<span>+' + data.stats[stat] + (statsCompare[stat] ? '(' + statsCompare[stat] + ')' : '') + ' ' + stat);
+			  		}
 			  	}
 			  );
+}
+
+function compareStats(slot,stats)
+{
+	slotStats = equip[slot].stats;
+
+	var sks = ['agi','stam','exp','mast','haste','crit','hit'];
+	
+	var out = new Array();
+	
+	for (var sk in sks)
+	{
+		out[sks[sk]] = stats[sks[sk]] - slotStats[sks[sk]];
+	}
+	
+	return out;
 }
 
 function openGearSelector()
