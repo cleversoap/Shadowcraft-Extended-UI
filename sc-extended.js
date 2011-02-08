@@ -127,7 +127,8 @@ function openGearSelector()
 {
 	
 	// Get the slot to select gear from
-	var slot = $(this).parent().attr('id').substring(5);
+	var slotBox = $(this).parent();
+	var slot = slotBox.attr('id').substring(5);
 	
 	// If the gearbox currently open is the one that was clicked then just close it and return
 	if ($(".selectGear").length)
@@ -155,11 +156,11 @@ function openGearSelector()
 	if($(this).parent().parent().attr('id') == 'rightItems')
 	{
 		gBox.addClass("selectGearRight");
-		gBox.css("left",550);
+		gBox.css("left",slotBox.position().left - slotBox.width() * 1.3);
 	}
 	else
 	{
-		gBox.css("left",400);
+		gBox.css("left",slotBox.position().left + slotBox.width() * 1.15);
 	}
 	
 	gBox.css("top",$(this).parent().position().top - 20);

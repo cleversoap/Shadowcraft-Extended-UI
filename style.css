@@ -292,12 +292,18 @@ body
 .slideSlot
 {
 	overflow: hidden;
+	height: 100px;
+	min-height: 100px;
+	max-width: 250px;
+	width: 260px;
 }
 
 .slideSlot ul
 {
 	list-style-type: none;
 	width: 4000px;
+	height: 100px;
+	overflow: hidden;
 }
 
 .slideSlot li
@@ -306,6 +312,8 @@ body
 	float: left;
 	width: 250px;
 	height: 100px;
+	margin: auto;
+	overflow: hidden;
 }
 
 .slideSlot li p
