@@ -156,11 +156,11 @@ function openGearSelector()
 	if($(this).parent().parent().attr('id') == 'rightItems')
 	{
 		gBox.addClass("selectGearRight");
-		gBox.css("left",slotBox.position().left - slotBox.width() * 1.3);
+		gBox.css("left",slotBox.position().left - slotBox.width() * 1.325);
 	}
 	else
 	{
-		gBox.css("left",slotBox.position().left + slotBox.width() * 1.15);
+		gBox.css("left",slotBox.position().left + slotBox.width() * 1.125);
 	}
 	
 	gBox.css("top",$(this).parent().position().top - 20);
