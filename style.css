@@ -378,7 +378,6 @@ body
 	width: 300px;
 	height: 300px;
 	border: 2px solid;
-	padding: 5px;
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#111), to(#333));
 	background: -moz-linear-gradient(90deg,#333,#111);
 	/* css3 drop shadow */
@@ -387,6 +386,7 @@ body
     /* css3 border radius */
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    vertical-align: top;
 }
 
 .selectGear:after
@@ -421,8 +421,43 @@ body
 	border-width:20px;
 }*/
 
+.selectGearBox
+{
+	display: block;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	padding: 0px 3px 3px 5px;
+	margin: 3px;
+}
+
+.selectGearBox:hover
+{
+	background-color: #333;
+	cursor: pointer;
+}
+
 .selectGear .itemTitle
 {
 	float: left;
+	width: 100%;
 }
 
+.selectGear .selectStats
+{
+	font-size: 10px;
+}
+
+.selectGear .selectStats span
+{
+	margin-right: 10px;
+}
+
+.statUp
+{
+	color: lime;
+}
+
+.statDown
+{
+	color: red;
+}
