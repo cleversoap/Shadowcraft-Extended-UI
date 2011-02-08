@@ -3,7 +3,9 @@ var itemdb = {
 	[
 		59455,	// Agile Bio-Optic Kill Shades
 		59490,	// Membrane of C'Thun
-		56344	// Helm of Numberless Shadows
+		56344,	// Helm of Numberless Shadows
+		60202,	// Tsanga's Helm
+		60299	// Wind Dancer's Helmet
 	],
 	
 	neck:
@@ -20,6 +22,9 @@ var itemdb = {
 	
 	chest:
 	[
+		56562,	// Assassin's Chestplate
+		59318,	// Sark of the Unwatched
+		60301	// Wind Dancer's Tunic
 	],
 	
 	wrist:
