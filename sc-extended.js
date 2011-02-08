@@ -183,7 +183,7 @@ function openGearSelector()
 	if($(this).parent().parent().attr('id') == 'rightItems')
 	{
 		gBox.addClass("selectGearRight");
-		gBox.css("left",slotBox.position().left - slotBox.width() * 1.325);
+		gBox.css("left",slotBox.position().left - slotBox.width() * 1.285);
 	}
 	else
 	{
